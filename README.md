@@ -1,4 +1,3 @@
-
 fluent-plugin-ustream
 =====================
 
@@ -8,7 +7,7 @@ fluentd plugin of inputs from ustream data api.
 
 ## install
 
-``
+```
 git clone git@github.com:yuiseki/fluent-plugin-ustream.git
 cd fluent-plugin-ustream
 sudo rake install
