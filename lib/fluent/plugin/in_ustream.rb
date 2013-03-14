@@ -32,12 +32,11 @@ module Fluent
         json = JSON.parse(open(@uri))
         json["result"].each do |channel|
           if channel["urlTitleName"] == @channel
-            message = {
-              "viewersNow" => channel["viewersNow"]
-              "totalViews" => channel["totalViews"]
-              "url"        => channel["url"]
-              "status"     => channel["status"]
-            }
+            message = Hash.new
+            message.store("viewersNow", channel["viewersNow"])
+            message.store("totalViews", channel["totalViews"])
+            message.store("url"       , channel["url"])
+            message.store("status"    , channel["status"])
             get_message(message)
           end
         end
