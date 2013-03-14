@@ -6,6 +6,14 @@ fluent-plugin-ustream
 fluentd plugin of inputs from ustream data api.
 
 
+## install
+
+``
+git clone git@github.com:yuiseki/fluent-plugin-ustream.git
+cd fluent-plugin-ustream
+sudo rake install
+```
+
 
 
 ## sample configuration
@@ -27,12 +35,19 @@ fluentd plugin of inputs from ustream data api.
 </match>
 ```
 
+```
+fluentd -c fluent/test-ustream.conf
+```
+
 will inputs
 
 ```
 {"viewersNow"=>"0", "totalViews"=>"4326", "url"=>"http://www.ustream.tv/channel/yuiseki", "status"=>"offline"}
 ```
 
+
 ## TODO
-- supporting configure multiple channels
-- supporting configure the pooling interval
+- support to configure multiple channels
+- support to configure the pooling interval
+- register to rubygems.org
+
