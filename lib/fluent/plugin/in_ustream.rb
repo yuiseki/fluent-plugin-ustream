@@ -16,10 +16,11 @@ module Fluent
     def configure(conf)
       super
       domain = "api.ustream.tv"
-      @uri = "http://#{domain}/html/channel/#{@channel}/listAllChannels?key=#{@api_key}"
+      @uri = "http://#{domain}/json/channel/#{@channel}/listAllChannels?key=#{@api_key}"
     end
 
     def start
+      $log.info "start to pooling Ustream API, #{@uri}"
       @thread = Thread.new(&method(:run))
     end
 
@@ -29,10 +30,11 @@ module Fluent
 
     def run
       loop do
-        json = JSON.parse(open(@uri))
-        json["result"].each do |channel|
+        json = JSON.parse(open(@uri).read)
+        json["results"].each do |channel|
           if channel["urlTitleName"] == @channel
             message = Hash.new
+            message.store("channle", @channel)
             message.store("viewersNow", channel["viewersNow"])
             message.store("totalViews", channel["totalViews"])
             message.store("url"       , channel["url"])

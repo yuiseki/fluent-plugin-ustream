@@ -6,8 +6,8 @@ Gem::Specification.new do |spec|
   spec.version       = "0.0.1"
   spec.authors       = ["yuiseki"]
   spec.email         = ["yuiseki@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{fluentd plugin of inputs from ustream data api}
+  spec.summary       = %q{fluentd plugin of inputs from ustream data api}
   spec.homepage      = ""
   spec.license       = "MIT"
 

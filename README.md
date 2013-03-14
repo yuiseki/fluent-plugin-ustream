@@ -3,8 +3,4 @@ fluent-plugin-ustream
 =====================
 
 
-## TODO
-
-- test
-- rake
-- gem
+fluentd plugin of inputs from ustream data api
